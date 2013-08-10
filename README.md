@@ -1,6 +1,11 @@
 Gitlab for Android
 ==============
 
+This repository contains the source code for the Gitlab Android app.
+
+Please see the [issues](https://github.com/leandros/gitlab-android/issues) section to
+report any bugs or feature requests and to see the list of known issues.
+
 ## License
 
 * [GPL v2](http://www.gnu.org/licenses/gpl-2.0.html)
