@@ -25,3 +25,5 @@ Please fork this repository and contribute back using
 Any contributions, large or small, major features, bug fixes, additional
 language translations, unit/integration tests are welcomed and appreciated
 but will be thoroughly reviewed and discussed.
+
+Please consider to take a look at the TODO file in the directory, for a to-do list with work which has to be done.
