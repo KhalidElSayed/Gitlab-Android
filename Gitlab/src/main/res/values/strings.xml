@@ -5,4 +5,19 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
 
+    <!-- Different used Strings -->
+    <string name="image">Image</string>
+
+    <!-- Wizard Strings -->
+    <string name="tryit">Try Gitlab for Android</string>
+    <string name="signin">Sign In</string>
+
+    <!-- Sign In Strings -->
+    <string name="gitlab_url_label">Gitlab URL</string>
+    <string name="gitlab_url_hint">e.g http://demo.gitlab.com/</string>
+    <string name="gitlab_token_label">Private Token</string>
+    <string name="gitlab_token_hint">e.g xD2u7qqskGczXKZ7Mum9</string>
+    <string name="url_invalid">Gitlab URL is invalid</string>
+    <string name="token_invalid">Private Token is invalid</string>
+
 </resources>

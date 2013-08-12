@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <!-- Gitlab Instance URL -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/gitlab_url_label"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/accent_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dip"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/accent_color" />
+
+        <EditText
+            android:id="@+id/gitlab_url_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="4dp"
+            android:hint="@string/gitlab_url_hint"
+            android:inputType="textUri|textNoSuggestions|textVisiblePassword"
+            android:minHeight="40dip"
+            android:singleLine="true" />
+
+        <!-- Gitlab User Private Token -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/gitlab_token_label"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/accent_color" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dip"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/accent_color" />
+
+        <EditText
+            android:id="@+id/private_token_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="4dp"
+            android:hint="@string/gitlab_token_hint"
+            android:inputType="textUri|textNoSuggestions|textVisiblePassword"
+            android:minHeight="40dip"
+            android:singleLine="true" />
+    </TableLayout>
+
+    <Button
+        android:id="@+id/signin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="32dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/signin"
+        android:padding="8dp"
+        android:layout_below="@id/tableLayout"
+        android:layout_alignParentRight="true" />
+
+
+</RelativeLayout>

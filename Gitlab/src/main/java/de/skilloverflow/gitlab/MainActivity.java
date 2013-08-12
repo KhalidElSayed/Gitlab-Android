@@ -1,8 +1,13 @@
 package de.skilloverflow.gitlab;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
+
+import de.skilloverflow.gitlab.utils.App;
+import de.skilloverflow.gitlab.utils.Utils;
 
 public class MainActivity extends Activity {
 
@@ -10,6 +15,15 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Context context = getApplicationContext();
+
+        if (!App.isWizardCompleted(context)) {
+            Intent i = new Intent(context, WizardActivity.class);
+            i.putExtra(Utils.INTENT_START_ID, Utils.START_WELCOME_SCREEN);
+            startActivity(i);
+            this.finish();
+        }
     }
 
 
