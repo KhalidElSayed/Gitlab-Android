@@ -18,3 +18,33 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+
+# IntelliJ IDEA project files
+.idea
+*.iml
+*.eml
+classes
+
+# Gradle Shit
+.gradle
+build/*
+MoneyTracker/build/*
+libraries/*/build/*
+
+# Command line
+build.xml
+proguard-project.txt
+
+# Mac specific
+.DS_Store
+
+# Sonar
+.sonar
+
+# ProGuard
+proguard_logs/dump.txt
+proguard_logs/seeds.txt
+proguard_logs/usage.txt
+
+# My Keystore
+keystore/*
