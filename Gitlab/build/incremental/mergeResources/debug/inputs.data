@@ -1,0 +1,15 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1376267381000 649 52e8d9051811c2787c5fc0d0dc7735d67b0820be /home/leandros/GitlabProject/Gitlab/src/main/res/layout/activity_main.xml
+1376267381000 244 045ff451db7cd8e61285502b8c9bbf7405f2078d /home/leandros/GitlabProject/Gitlab/src/main/res/menu/main.xml
+1373638995000 9397 4a5a9affbb731f195fc18fea78d51be7db7536a2 /home/leandros/GitlabProject/Gitlab/src/main/res/drawable-hdpi/ic_launcher.png
+1376267381000 211 4e1904afba59d31e5cd6133f6a4c360fa9a5913f /home/leandros/GitlabProject/Gitlab/src/main/res/values/dimens.xml
+1376267381000 216 6e08a3b50003fd84e0af42be306e11b3036ecba2 /home/leandros/GitlabProject/Gitlab/src/main/res/values/strings.xml
+1373638995000 5237 7761bceaf18ed25cdba5f34bf00a55616d078acf /home/leandros/GitlabProject/Gitlab/src/main/res/drawable-mdpi/ic_launcher.png
+1373638995000 14383 82acdd75e3fcc36026109406625edc69d4d7212d /home/leandros/GitlabProject/Gitlab/src/main/res/drawable-xhdpi/ic_launcher.png
+1376267381000 254 25b6404e44acb50c82590049639d4fb5fefbac8e /home/leandros/GitlabProject/Gitlab/src/main/res/values-sw720dp-land/dimens.xml
+1376267381000 381 b129b276e01126de5b3b753572ac67cbfc19454c /home/leandros/GitlabProject/Gitlab/src/main/res/values-v14/styles.xml
+1376267381000 181 84de2797380184d8b39af6f829afb092fb956173 /home/leandros/GitlabProject/Gitlab/src/main/res/values-sw600dp/dimens.xml
+1376267381000 680 c76f4caaa7a8dfe9727fa93001b3aee3b22d6716 /home/leandros/GitlabProject/Gitlab/src/main/res/values/styles.xml
+1376267381000 324 aa1f5f1723de9aee2669dc44a26fbc0ce776d35f /home/leandros/GitlabProject/Gitlab/src/main/res/values-v11/styles.xml
