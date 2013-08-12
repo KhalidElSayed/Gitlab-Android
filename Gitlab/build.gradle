@@ -17,4 +17,33 @@ android {
         minSdkVersion 14
         targetSdkVersion 18
     }
+
+    signingConfigs {
+        debugConfig {
+            storeFile file("../../.android/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+        defaultConfig {
+            storeFile file("../../.android/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+
+    buildTypes {
+        debug {
+            versionNameSuffix '-DEBUG'
+            debuggable true
+            zipAlign true
+            signingConfig signingConfigs.debugConfig
+        }
+        release {
+            debuggable false
+            zipAlign true
+            signingConfig signingConfigs.defaultConfig
+        }
+    }
 }
