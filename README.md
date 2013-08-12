@@ -20,7 +20,7 @@ A debug build can be build with `gradle assembleDebug`.
 ## Contributing
 
 Please fork this repository and contribute back using
-[pull requests](https://github.com/leandros/gitlab-android/pulls).
+[pull requests](https://github.com/leandros/gitlab-android/pulls). Please note, this project is using the [Git Flow branching model](http://nvie.com/posts/a-successful-git-branching-model/).
 
 Any contributions, large or small, major features, bug fixes, additional
 language translations, unit/integration tests are welcomed and appreciated
