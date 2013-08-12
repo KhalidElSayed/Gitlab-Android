@@ -28,7 +28,7 @@ classes
 # Gradle Shit
 .gradle
 build/*
-MoneyTracker/build/*
+Gitlab/build/*
 libraries/*/build/*
 
 # Command line
