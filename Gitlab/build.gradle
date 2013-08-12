@@ -4,6 +4,7 @@ dependencies {
     compile 'com.android.support:support-v4:13.0.+'
 
     compile files('libs/acra-4.5.0.jar')
+    compile files('libs/universal-image-loader-1.8.6-with-sources.jar')
 
     compile project(':libraries:Crouton')
     compile project(':libraries:EventBus')
