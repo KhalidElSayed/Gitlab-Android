@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Holo Colors -->
     <color name="actionBar_color">#ff474d57</color>
     <color name="accent_color">#ff30a1ba</color>
+    <color name="pressed_gitlab">#CC30A1BA</color>
 
     <!-- Holo Light Colors -->
     <color name="background_holo_light">#fff3f3f3</color>

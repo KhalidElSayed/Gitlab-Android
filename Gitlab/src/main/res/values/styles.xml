@@ -15,6 +15,62 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_gitlab</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Gitlab</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Gitlab</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Gitlab</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Gitlab</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Gitlab</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_gitlab</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_gitlab</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Gitlab</item>
+
+        <!-- Light.DarkActionBar specific -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Gitlab.Widget</item>
+    </style>
+
+    <style name="ActionBar.Solid.Gitlab" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_solid_gitlab</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_gitlab</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_gitlab</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Gitlab</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Gitlab" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_gitlab</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Gitlab</item>
+    </style>
+
+    <style name="PopupMenu.Gitlab" parent="@android:style/Widget.Holo.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_gitlab</item>
+    </style>
+
+    <style name="DropDownListView.Gitlab" parent="@android:style/Widget.Holo.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_gitlab</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Gitlab" parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_gitlab</item>
+    </style>
+
+    <style name="DropDownNav.Gitlab" parent="@android:style/Widget.Holo.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_gitlab</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_gitlab</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_gitlab</item>
+    </style>
+
+    <style name="ProgressBar.Gitlab" parent="@android:style/Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_gitlab</item>
+    </style>
+
+    <style name="ActionButton.CloseMode.Gitlab" parent="@android:style/Widget.Holo.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_gitlab</item>
+    </style>
+
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Gitlab.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Gitlab</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Gitlab</item>
     </style>
 
 </resources>
