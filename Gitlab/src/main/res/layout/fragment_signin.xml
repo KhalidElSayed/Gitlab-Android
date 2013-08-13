@@ -114,6 +114,18 @@
             android:singleLine="true" />
     </TableLayout>
 
+    <CheckBox
+        android:id="@+id/password_visibility_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"
+        android:padding="8dp"
+        android:layout_below="@id/tableLayout"
+        android:layout_alignParentLeft="true"
+        android:checked="false"
+        android:text="@string/show_password" />
+
     <Button
         android:id="@+id/signin_button"
         android:layout_width="wrap_content"

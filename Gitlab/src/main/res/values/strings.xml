@@ -19,6 +19,7 @@
     <string name="gitlab_email_hint">e.g john@doe.com</string>
     <string name="gitlab_password_label">Password</string>
     <string name="gitlab_password_hint">required</string>
+    <string name="show_password">Show password</string>
     <string name="url_invalid">Gitlab URL is invalid</string>
     <string name="email_invalid">Email is invalid</string>
     <string name="password_invalid">Password is invalid</string>

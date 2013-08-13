@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
@@ -51,6 +54,20 @@ public class SignIn extends Fragment {
         signInButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
 
         signInButton.setOnClickListener(new SignInClickListener(activity, v));
+
+        CheckBox passwordVisiblityCheckBox = (CheckBox) v.findViewById(R.id.password_visibility_switch);
+        passwordVisiblityCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                EditText passwordEditText = (EditText) v.findViewById(R.id.password_edittext);
+                if (isChecked) {
+                    passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                } else {
+                    passwordEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
+                passwordEditText.setSelection(passwordEditText.getText().length());
+            }
+        });
 
         return v;
     }
