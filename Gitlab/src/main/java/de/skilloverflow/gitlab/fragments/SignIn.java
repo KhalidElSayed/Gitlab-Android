@@ -105,8 +105,8 @@ public class SignIn extends Fragment {
                             new User(mActivity, jsonObject.getString("username"),
                                     jsonObject.getString("email"),
                                     jsonObject.getString("name"),
-                                    jsonObject.getString("private_token"),
                                     jsonObject.getString("created_at"));
+                            CredentialsProvider.setPrivateToken(mActivity, jsonObject.getString("private_token"));
                             App.setWizardCompleted(mActivity);
 
                             startActivity(new Intent(mActivity, MainActivity.class));

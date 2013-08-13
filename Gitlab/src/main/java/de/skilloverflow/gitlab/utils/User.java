@@ -12,7 +12,7 @@ public class User {
         this.mContext = context;
     }
 
-    public User(Context context, String userName, String email, String name, String privateToken, String createdAt) {
+    public User(Context context, String userName, String email, String name, String createdAt) {
         super();
         this.mContext = context;
         SharedPreferences prefs = context.getSharedPreferences(USER, 0);
@@ -20,7 +20,6 @@ public class User {
         editor.putString("userName", userName).apply();
         editor.putString("email", email).apply();
         editor.putString("name", name).apply();
-        editor.putString("privateToken", privateToken).apply();
         editor.putString("createdAt", createdAt).apply();
     }
 
@@ -37,11 +36,6 @@ public class User {
     public void setName(String name) {
         SharedPreferences prefs = mContext.getSharedPreferences(USER, 0);
         prefs.edit().putString("name", name).apply();
-    }
-
-    public void setPrivateToken(String privateToken) {
-        SharedPreferences prefs = mContext.getSharedPreferences(USER, 0);
-        prefs.edit().putString("privateToken", privateToken).apply();
     }
 
     public void setCreateDate(String createdAt) {
@@ -65,10 +59,6 @@ public class User {
         return mContext.getSharedPreferences(USER, 0).getString("name", "");
     }
 
-    public String getPrivateToken() {
-        return mContext.getSharedPreferences(USER, 0).getString("privateToken", "");
-    }
-
     public String getCreateDate() {
         return mContext.getSharedPreferences(USER, 0).getString("createdAt", "");
     }
@@ -77,7 +67,6 @@ public class User {
         return "User Name: " + getUserName()
                 + " | Email: " + getEmail()
                 + " | Name: " + getName()
-                + " | privateToken: " + getPrivateToken()
                 + " | createdAt: " + getCreateDate();
     }
 }
