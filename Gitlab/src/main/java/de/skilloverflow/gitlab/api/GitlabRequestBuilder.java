@@ -36,7 +36,7 @@ public class GitlabRequestBuilder implements RequestBuilder, TokenResponse {
     }
 
     @Override
-    public GitlabRequestBuilder authenticateUser(String email, String password) {
+    public GitlabRequestBuilder querySession(String email, String password) {
         mEmail = email;
         // TODO Do it in a safer way!
         mPass = password;

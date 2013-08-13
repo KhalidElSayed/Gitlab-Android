@@ -94,7 +94,7 @@ public class SignIn extends Fragment {
             if (inputIsValid) {
                 CredentialsProvider.setBaseUrl(mActivity, gitlabUrl);
                 // TODO Add ProgressBar somewhere for showing progress.
-                GitlabApi.init(mActivity).authenticateUser(email, password).setCallback(new TokenResponse.CompletedListener() {
+                GitlabApi.init(mActivity).querySession(email, password).setCallback(new TokenResponse.CompletedListener() {
                     @Override
                     public void onCompleted(JSONObject jsonObject) {
                         if (jsonObject == null) {
