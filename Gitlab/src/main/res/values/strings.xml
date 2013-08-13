@@ -27,4 +27,26 @@
     <!-- Crouton Strings -->
     <string name="crouton_login_wrong">URL, Email and/or Password wrong.</string>
 
+    <!-- Navigation Drawer Strings -->
+    <string name="drawer_open">Drawer opened</string>
+    <string name="drawer_close">Drawer closed</string>
+
+    <string-array name="navigation_drawer_strings">
+        <item>Dashboard</item>
+        <item>Projects</item>
+        <item>Issues</item>
+        <item>Merge Requests</item>
+        <item>Snippets</item>
+        <item>Profile</item>
+    </string-array>
+
+    <string-array name="navigation_drawer_icons">
+        <item>@drawable/ic_menu_dashboard</item>
+        <item>@drawable/ic_menu_projects</item>
+        <item>@drawable/ic_menu_issues</item>
+        <item>@drawable/ic_menu_merge_request</item>
+        <item>@drawable/ic_menu_snippets</item>
+        <item>@drawable/ic_menu_profile</item>
+    </string-array>
+
 </resources>
