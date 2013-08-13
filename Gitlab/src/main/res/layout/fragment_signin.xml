@@ -126,5 +126,16 @@
         android:layout_below="@id/tableLayout"
         android:layout_alignParentRight="true" />
 
+    <ProgressBar
+        android:id="@+id/signin_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="40dp"
+        android:padding="8dp"
+        android:layout_below="@id/tableLayout"
+        android:layout_alignParentRight="true"
+        android:visibility="gone" />
+
 
 </RelativeLayout>

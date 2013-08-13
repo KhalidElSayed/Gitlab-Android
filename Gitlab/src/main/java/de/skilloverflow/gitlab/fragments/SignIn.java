@@ -14,12 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.regex.Matcher;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.skilloverflow.gitlab.MainActivity;
 import de.skilloverflow.gitlab.R;
 import de.skilloverflow.gitlab.api.CredentialsProvider;
@@ -27,6 +29,7 @@ import de.skilloverflow.gitlab.api.GitlabApi;
 import de.skilloverflow.gitlab.api.responses.TokenResponse;
 import de.skilloverflow.gitlab.utils.App;
 import de.skilloverflow.gitlab.utils.User;
+import de.skilloverflow.gitlab.utils.misc.CustomCrouton;
 
 public class SignIn extends Fragment {
 
@@ -63,7 +66,7 @@ public class SignIn extends Fragment {
         }
 
         @Override
-        public void onClick(View v) {
+        public void onClick(final View v) {
             EditText gitlabUrlEditText = (EditText) mView.findViewById(R.id.gitlab_url_edittext);
             EditText emailEditText = (EditText) mView.findViewById(R.id.email_edittext);
             EditText passwordEditText = (EditText) mView.findViewById(R.id.password_edittext);
@@ -93,12 +96,17 @@ public class SignIn extends Fragment {
 
             if (inputIsValid) {
                 CredentialsProvider.setBaseUrl(mActivity, gitlabUrl);
-                // TODO Add ProgressBar somewhere for showing progress.
+                final ProgressBar signInProgressBar = (ProgressBar) mView.findViewById(R.id.signin_progressBar);
+                signInProgressBar.setVisibility(View.VISIBLE);
+                v.setVisibility(View.GONE);
+
                 GitlabApi.init(mActivity).querySession(email, password).setCallback(new TokenResponse.CompletedListener() {
                     @Override
                     public void onCompleted(JSONObject jsonObject) {
                         if (jsonObject == null) {
-                            // TODO Crouton to inform about the Failure and start again.
+                            signInProgressBar.setVisibility(View.GONE);
+                            v.setVisibility(View.VISIBLE);
+                            CustomCrouton.show(mActivity, R.string.crouton_login_wrong, CustomCrouton.ALERT);
                             return;
                         }
                         try {
@@ -114,7 +122,9 @@ public class SignIn extends Fragment {
 
                         } catch (JSONException e) {
                             Log.d("TAG", "JSONException", e);
-                            // TODO Crouton to inform about the Failure and start again.
+                            signInProgressBar.setVisibility(View.GONE);
+                            v.setVisibility(View.VISIBLE);
+                            CustomCrouton.show(mActivity, R.string.crouton_login_wrong, CustomCrouton.ALERT);
                         }
                     }
                 });
@@ -122,4 +132,10 @@ public class SignIn extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        // Workaround for Crouton issue #24 (https://github.com/keyboardsurfer/Crouton/issues/24).
+        Crouton.clearCroutonsForActivity(getActivity());
+        super.onDestroyView();
+    }
 }

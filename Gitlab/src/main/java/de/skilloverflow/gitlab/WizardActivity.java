@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.skilloverflow.gitlab.fragments.SignIn;
 import de.skilloverflow.gitlab.fragments.WelcomeScreen;
 import de.skilloverflow.gitlab.utils.Utils;
@@ -43,6 +44,12 @@ public class WizardActivity extends FragmentActivity {
                         .commit();
                 break;
         }
+    }
 
+    @Override
+    protected void onDestroy() {
+        // Workaround for Crouton issue #24 (https://github.com/keyboardsurfer/Crouton/issues/24).
+        Crouton.clearCroutonsForActivity(this);
+        super.onDestroy();
     }
 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.skilloverflow.gitlab.utils.App;
 import de.skilloverflow.gitlab.utils.Utils;
 
@@ -33,5 +34,11 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+
+    @Override
+    protected void onDestroy() {
+        // Workaround for Crouton issue #24 (https://github.com/keyboardsurfer/Crouton/issues/24).
+        Crouton.clearCroutonsForActivity(this);
+        super.onDestroy();
+    }
 }

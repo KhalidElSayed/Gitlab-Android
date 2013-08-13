@@ -23,4 +23,7 @@
     <string name="email_invalid">Email is invalid</string>
     <string name="password_invalid">Password is invalid</string>
 
+    <!-- Crouton Strings -->
+    <string name="crouton_login_wrong">URL, Email and/or Password wrong.</string>
+
 </resources>
