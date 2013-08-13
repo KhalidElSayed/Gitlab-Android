@@ -13,11 +13,14 @@
     <string name="signin">Sign In</string>
 
     <!-- Sign In Strings -->
-    <string name="gitlab_url_label">Gitlab URL</string>
+    <string name="gitlab_url_label">Gitlab URL (SSL preferred)</string>
     <string name="gitlab_url_hint">e.g http://demo.gitlab.com/</string>
-    <string name="gitlab_token_label">Private Token</string>
-    <string name="gitlab_token_hint">e.g xD2u7qqskGczXKZ7Mum9</string>
+    <string name="gitlab_email_label">E-Mail</string>
+    <string name="gitlab_email_hint">e.g john@doe.com</string>
+    <string name="gitlab_password_label">Password</string>
+    <string name="gitlab_password_hint">required</string>
     <string name="url_invalid">Gitlab URL is invalid</string>
-    <string name="token_invalid">Private Token is invalid</string>
+    <string name="email_invalid">Email is invalid</string>
+    <string name="password_invalid">Password is invalid</string>
 
 </resources>

@@ -1,7 +1,7 @@
 package de.skilloverflow.gitlab.fragments;
 
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -29,14 +29,14 @@ public class WelcomeScreen extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_welcome, container, false);
-        final Context context = getActivity();
+        final Activity activity = getActivity();
 
         ImageView logoImageView = (ImageView) v.findViewById(R.id.gitlab_logo);
         ImageLoader.getInstance().displayImage(GITLAB_LOGO_URI, logoImageView);
 
         // Create TypeFace from .ttf files in Assets directory for use with the buttons.
-        Typeface typefaceThin = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Thin.ttf");
-        Typeface typefaceBold = Typeface.createFromAsset(context.getAssets(), "fonts/Roboto-Bold.ttf");
+        Typeface typefaceThin = Typeface.createFromAsset(activity.getAssets(), "fonts/Roboto-Thin.ttf");
+        Typeface typefaceBold = Typeface.createFromAsset(activity.getAssets(), "fonts/Roboto-Bold.ttf");
 
         Button signInButton = (Button) v.findViewById(R.id.signin_button);
         Button tryItButton = (Button) v.findViewById(R.id.tryit_button);
@@ -49,9 +49,10 @@ public class WelcomeScreen extends Fragment {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, WizardActivity.class);
+                Intent i = new Intent(activity, WizardActivity.class);
                 i.putExtra(Utils.INTENT_START_ID, Utils.START_SIGN_IN);
                 startActivity(i);
+                activity.finish();
             }
         });
 
