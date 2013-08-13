@@ -22,9 +22,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.skilloverflow.gitlab.api.responses.TokenResponse;
+import de.skilloverflow.gitlab.api.responses.SessionResponse;
 
-public class GitlabRequestBuilder implements RequestBuilder, TokenResponse {
+public class GitlabRequestBuilder implements RequestBuilder, SessionResponse {
     private final Context mContext;
 
     private String mEmail;
@@ -45,18 +45,18 @@ public class GitlabRequestBuilder implements RequestBuilder, TokenResponse {
 
     @Override
     public void setCallback(CompletedListener completedListener) {
-        new AuthenticateUserTask(mEmail, mPass, completedListener).execute();
+        new QuerySessionTask(mEmail, mPass, completedListener).execute();
         mEmail = null;
         mPass = null;
     }
 
-    private final class AuthenticateUserTask extends AsyncTask<Boolean, Void, Boolean> {
+    private final class QuerySessionTask extends AsyncTask<Boolean, Void, Boolean> {
         private final CompletedListener mCompletedListener;
         private final String mEmail;
         private final String mPassword;
         private JSONObject mJSONObject;
 
-        public AuthenticateUserTask(String email, String password, CompletedListener completedListener) {
+        public QuerySessionTask(String email, String password, CompletedListener completedListener) {
             super();
             this.mCompletedListener = completedListener;
             this.mEmail = email;
@@ -66,7 +66,7 @@ public class GitlabRequestBuilder implements RequestBuilder, TokenResponse {
         @Override
         protected Boolean doInBackground(Boolean... params) {
             HttpClient httpClient = new DefaultHttpClient();
-            HttpPost httpPost = new HttpPost(CredentialsProvider.getBaseUrl(mContext) + "/session");
+            HttpPost httpPost = new HttpPost(CredentialsProvider.getUrl(mContext) + "/session");
 
             try {
                 // Add the parameters.

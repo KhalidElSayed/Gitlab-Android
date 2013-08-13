@@ -29,7 +29,7 @@ import de.skilloverflow.gitlab.MainActivity;
 import de.skilloverflow.gitlab.R;
 import de.skilloverflow.gitlab.api.CredentialsProvider;
 import de.skilloverflow.gitlab.api.GitlabApi;
-import de.skilloverflow.gitlab.api.responses.TokenResponse;
+import de.skilloverflow.gitlab.api.responses.SessionResponse;
 import de.skilloverflow.gitlab.utils.App;
 import de.skilloverflow.gitlab.utils.User;
 import de.skilloverflow.gitlab.utils.misc.CustomCrouton;
@@ -112,12 +112,12 @@ public class SignIn extends Fragment {
             }
 
             if (inputIsValid) {
-                CredentialsProvider.setBaseUrl(mActivity, gitlabUrl);
+                CredentialsProvider.setUrl(mActivity, gitlabUrl);
                 final ProgressBar signInProgressBar = (ProgressBar) mView.findViewById(R.id.signin_progressBar);
                 signInProgressBar.setVisibility(View.VISIBLE);
                 v.setVisibility(View.GONE);
 
-                GitlabApi.init(mActivity).querySession(email, password).setCallback(new TokenResponse.CompletedListener() {
+                GitlabApi.init(mActivity).querySession(email, password).setCallback(new SessionResponse.CompletedListener() {
                     @Override
                     public void onCompleted(JSONObject jsonObject) {
                         if (jsonObject == null) {
