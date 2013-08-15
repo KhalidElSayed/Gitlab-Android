@@ -17,10 +17,11 @@ public class User {
         this.mContext = context;
         SharedPreferences prefs = context.getSharedPreferences(USER, 0);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("userName", userName).apply();
-        editor.putString("email", email).apply();
-        editor.putString("name", name).apply();
-        editor.putString("createdAt", createdAt).apply();
+        editor.putString("userName", userName);
+        editor.putString("email", email);
+        editor.putString("name", name);
+        editor.putString("createdAt", createdAt);
+        editor.apply();
     }
 
     public void setUserName(String userName) {
