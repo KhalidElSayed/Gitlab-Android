@@ -3,11 +3,11 @@ package de.skilloverflow.gitlab.fragments;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -126,23 +126,8 @@ public class SignIn extends Fragment {
                             CustomCrouton.show(mActivity, R.string.crouton_login_wrong, CustomCrouton.ALERT);
                             return;
                         }
-                        try {
-                            new User(mActivity, jsonObject.getString("username"),
-                                    jsonObject.getString("email"),
-                                    jsonObject.getString("name"),
-                                    jsonObject.getString("created_at"));
-                            CredentialsProvider.setPrivateToken(mActivity, jsonObject.getString("private_token"));
-                            App.setWizardCompleted(mActivity);
 
-                            startActivity(new Intent(mActivity, MainActivity.class));
-                            mActivity.finish();
-
-                        } catch (JSONException e) {
-                            Log.d("TAG", "JSONException", e);
-                            signInProgressBar.setVisibility(View.GONE);
-                            v.setVisibility(View.VISIBLE);
-                            CustomCrouton.show(mActivity, R.string.crouton_login_wrong, CustomCrouton.ALERT);
-                        }
+                        new CreateUserTask(mActivity, jsonObject, v, signInProgressBar).execute();
                     }
                 });
             }
@@ -154,5 +139,54 @@ public class SignIn extends Fragment {
         // Workaround for Crouton issue #24 (https://github.com/keyboardsurfer/Crouton/issues/24).
         Crouton.clearCroutonsForActivity(getActivity());
         super.onDestroyView();
+    }
+
+    private final class CreateUserTask extends AsyncTask<Boolean, Void, Boolean> {
+        private final Activity mActivity;
+        private final JSONObject mJSONObject;
+        private final View mClickedView;
+        private final ProgressBar mSignInProgressBar;
+
+        public CreateUserTask(Activity activity, JSONObject jsonObject, View clickedView, ProgressBar signInProgressBar) {
+            super();
+            this.mActivity = activity;
+            this.mJSONObject = jsonObject;
+            this.mClickedView = clickedView;
+            this.mSignInProgressBar = signInProgressBar;
+        }
+
+        @Override
+        protected Boolean doInBackground(Boolean... params) {
+
+            try {
+                new User(mActivity, mJSONObject.getString("username"),
+                        mJSONObject.getString("email"),
+                        mJSONObject.getString("name"),
+                        mJSONObject.getString("created_at"));
+                return CredentialsProvider.setPrivateToken(mActivity, mJSONObject.getString("private_token"));
+
+            } catch (JSONException e) {
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Boolean bool) {
+            super.onPostExecute(bool);
+            if (bool == null) {
+                mSignInProgressBar.setVisibility(View.GONE);
+                mClickedView.setVisibility(View.VISIBLE);
+                CustomCrouton.show(mActivity, R.string.crouton_login_wrong, CustomCrouton.ALERT);
+                return;
+            }
+
+            App.setWizardCompleted(mActivity);
+
+            Intent intent = new Intent(mActivity, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            mActivity.finish();
+        }
     }
 }
