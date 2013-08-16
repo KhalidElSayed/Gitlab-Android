@@ -11,7 +11,7 @@ report any bugs or feature requests and to see the list of known issues.
 * [GPL v2](http://www.gnu.org/licenses/gpl-2.0.html)
 
 **Addition**
-Publishing the application in the Play Store (no matter what package name is used), without my approval, is stricly prohibited!
+Publishing the application, for example in the Play Store, without my approval, is strictly prohibited!
 
 
 ## Building
